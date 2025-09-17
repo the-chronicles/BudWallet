@@ -4,13 +4,14 @@ import Lottie from "lottie-react";
 import type { LottieRefCurrentProps } from "lottie-react";
 import HeaderIllustrationLottie from "../assets/animations/Header-Illustration-Lottie.json";
 import { Link } from "react-router-dom";
+import Features from "../components/sub-pages/Features";
 
 function Hero() {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   return (
     <>
       <Navbar />
-      <div className="container mx-auto max-w-7xl items-center justify-center px-4 mt-18 ">
+      <div className="container mx-auto max-w-7xl items-center justify-center px-4 py-16 ">
         <h1 className="text-4xl font-semibold leading-tight">
           Your Money. <span className="text-[#A3A3A3]">Your Budget & Bud</span>
         </h1>
@@ -48,6 +49,8 @@ function Hero() {
         {/* Gradient underline */}
         <div className="h-1 w-full rounded-full -mt-0.5 bg-gradient-to-r from-teal-300 via-pink-500 to-indigo-300"></div>
       </div>
+
+      <Features />
     </>
   );
 }
