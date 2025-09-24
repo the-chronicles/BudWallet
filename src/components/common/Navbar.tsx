@@ -44,9 +44,15 @@ function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:block">
             <ul className="flex gap-8 items-center text-lg">
-              <Link to="/personal"><li className="hover:opacity-70 transition">Personal</li></Link>
-              <Link to="/business"><li className="hover:opacity-70 transition">Business</li></Link>
-              <Link to="/company"><li className="hover:opacity-70 transition">Company</li></Link>
+              <Link to="/personal">
+                <li className="hover:opacity-70 transition">Personal</li>
+              </Link>
+              <Link to="/business">
+                <li className="hover:opacity-70 transition">Business</li>
+              </Link>
+              <Link to="/company">
+                <li className="hover:opacity-70 transition">Company</li>
+              </Link>
               <Link to="/login">
                 <li className="rounded-full bg-black text-white px-5 py-1.5 hover:opacity-90 transition">
                   Sign up
@@ -67,12 +73,22 @@ function Navbar() {
             {!open ? (
               // Hamburger
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 6h10M4 12h16M4 18h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path
+                  d="M4 6h10M4 12h16M4 18h10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               </svg>
             ) : (
               // X
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <path
+                  d="M6 6l12 12M18 6l-12 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               </svg>
             )}
           </button>
@@ -118,8 +134,18 @@ function Navbar() {
                       aria-label="Close menu"
                       onClick={close}
                     >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 6l12 12M18 6l-12 12"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </button>
                   </div>

@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { Facebook, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-import Cta from "../../assets/animations/Cta.json";
+import CTA from "../../assets/animations/Cta.json";
 
 function Footer() {
   return (
@@ -29,7 +29,7 @@ function Footer() {
       </div>
 
       <div className="mt-28">
-        <Lottie animationData={Cta} loop={true} autoplay={true} />
+        <Lottie animationData={CTA} loop={true} autoplay={true} />
       </div>
 
       <footer className="bg-black py-10">
