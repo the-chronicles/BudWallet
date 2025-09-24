@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import type { Variants, Easing } from "framer-motion";
 
-const fadeUp = {
+const EASE_OUT: Easing = [0.16, 1, 0.3, 1];
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT } },
 };
 
 function Plan() {
@@ -27,7 +30,6 @@ function Plan() {
         viewport={{ once: true, amount: 0.2 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
       >
-        {/* <div className="grid grid-cols-3 gap-6 mt-10"> */}
         <div className="p-6 rounded-[22px] bg-[#F5F4F4] h-full">
           <h3 className="text-[16px] md:text-[20px] font-medium text-[#292929]">
             Free Plan
@@ -44,6 +46,7 @@ function Plan() {
             <li>Perfect for beginners</li>
           </ul>
         </div>
+
         <div className="p-6 rounded-[22px] bg-[#F5F4F4] h-full">
           <h3 className="text-[16px] md:text-[20px] font-medium text-[#292929]">
             Pro Plan
@@ -61,6 +64,7 @@ function Plan() {
             </li>
           </ul>
         </div>
+
         <div className="p-6 rounded-[22px] bg-[#F5F4F4] h-full">
           <h3 className="text-[16px] md:text-[20px] font-medium text-[#292929]">
             Premium Plan{" "}
@@ -78,7 +82,6 @@ function Plan() {
             </li>
           </ul>
         </div>
-        {/* </div> */}
       </motion.div>
     </section>
   );

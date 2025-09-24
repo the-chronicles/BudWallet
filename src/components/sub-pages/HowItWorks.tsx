@@ -5,8 +5,8 @@ import { motion, useInView } from "framer-motion";
 import type { Variants, Easing } from "framer-motion";
 
 import CreateWallet from "../../assets/animations/Create-Wallet.json";
-import SetBudget from "../../assets/animations/Set-Budget.json";
-import SpendWithControl from "../../assets/animations/Spend-With-Control.json";
+import SetBudget from "../../assets/animations/Set-budget.json";
+import SpendWithControl from "../../assets/animations/Spend-with-Control.json";
 import CloseReset from "../../assets/animations/Close-&-Reset.json";
 import Consistent from "../../assets/animations/Consistent.json";
 
