@@ -8,20 +8,22 @@ import Features from "../components/sub-pages/Features";
 import Plan from "../components/sub-pages/Plan";
 import Footer from "../components/common/Footer";
 import { motion } from "framer-motion";
+import type { Variants, Easing } from "framer-motion";
 
+const EASE_OUT: Easing = [0.16, 1, 0.3, 1];
 
-const headingContainer = {
+const headingContainer: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
-const word = {
+const word: Variants = {
   hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_OUT } },
 };
 
 function splitTokens(text: string) {
-  return text.match(/\S+|\s+/g) ?? []; 
+  return text.match(/\S+|\s+/g) ?? [];
 }
 
 function Space({ n = 1 }: { n?: number }) {
@@ -57,18 +59,14 @@ function HeadingReveal({
             <motion.span
               key={`lw-${i}`}
               variants={word}
-              style={{
-                display: "inline-block",
-                position: "relative",
-                willChange: "transform",
-              }}
+              style={{ display: "inline-block", position: "relative", willChange: "transform" }}
             >
               {t}
             </motion.span>
           )
         )}
       </span>
-      <Space /> 
+      <Space />
       <span className={rightClass}>
         {rightTokens.map((t, i) =>
           /\s+/.test(t) ? (
@@ -77,11 +75,7 @@ function HeadingReveal({
             <motion.span
               key={`rw-${i}`}
               variants={word}
-              style={{
-                display: "inline-block",
-                position: "relative",
-                willChange: "transform",
-              }}
+              style={{ display: "inline-block", position: "relative", willChange: "transform" }}
             >
               {t}
             </motion.span>
@@ -109,7 +103,7 @@ function Hero() {
           className="mt-4 text-[#7A7A7A]"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
           viewport={{ once: true }}
         >
           Manage your spending with a straightforward <br />
@@ -120,7 +114,7 @@ function Hero() {
           className="mt-6 flex gap-4"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.4, ease: EASE_OUT }}
           viewport={{ once: true }}
         >
           <Link to="/">
@@ -137,9 +131,9 @@ function Hero() {
 
         <motion.div
           className="w-2/3 mx-auto mt-20"
-          initial={{ opacity: 0, y: 60 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: EASE_OUT }}
           viewport={{ once: true }}
           onMouseEnter={() => lottieRef.current?.play()}
           onMouseLeave={() => lottieRef.current?.stop()}
@@ -156,7 +150,7 @@ function Hero() {
           className="h-1 w-full rounded-full -mt-0.5 bg-gradient-to-r from-teal-300 via-pink-500 to-indigo-300"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
+          transition={{ duration: 1.2, ease: EASE_OUT, delay: 0.8 }}
           viewport={{ once: true }}
           style={{ transformOrigin: "left" }}
         />
