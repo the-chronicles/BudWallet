@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import { Facebook, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-import CTA from "../../assets/animations/Cta.json";
+import CTA from "../../assets/animations/cta.json";
 
 function Footer() {
   return (
