@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import Lottie from "lottie-react";
 import type { LottieRefCurrentProps } from "lottie-react";
 import { motion, useInView } from "framer-motion";
+import type { Variants, Easing } from "framer-motion";
 
 import CreateWallet from "../../assets/animations/Create-Wallet.json";
 import SetBudget from "../../assets/animations/Set-Budget.json";
@@ -49,11 +50,14 @@ const STEPS: Step[] = [
   },
 ];
 
-const fadeUp = {
+const EASE_OUT: Easing = [0.16, 1, 0.3, 1];
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE_OUT } },
 };
-const containerStagger = {
+
+const containerStagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };

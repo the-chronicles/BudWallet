@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import { motion, useInView } from "framer-motion";
+import type { Variants, Easing } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 import SmartNudges from "../../assets/animations/Smart-Nudges-Lottie.json";
@@ -10,21 +11,24 @@ import Features1 from "../../assets/animations/Features-1-Lottie.json";
 import Features2 from "../../assets/animations/Features2.json";
 import CrossCurrency from "../../assets/animations/Cross-Currency-Ready.json";
 
-const fadeUp = {
+// Use a tuple (cubic-bezier) or easing function – NOT a plain string
+const EASE_OUT: Easing = [0.16, 1, 0.3, 1];
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE_OUT } },
 };
 
-const fade = {
+const fade: Variants = {
   hidden: { opacity: 0, scale: 0.98 },
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: EASE_OUT },
   },
 };
 
-const containerStagger = {
+const containerStagger: Variants = {
   hidden: {},
   show: {
     transition: { staggerChildren: 0.1, delayChildren: 0.05 },
@@ -62,12 +66,16 @@ function LottieInView({
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const inView = useInView(ref, { amount: 0.25, margin: "0px 0px -10% 0px" });
-  const lottieRef = useRef<any>(null);
+  const lottieRef =
+    useRef<Parameters<typeof Lottie>[0]["lottieRef"] extends infer T ? T : any>(
+      null
+    );
 
   useEffect(() => {
-    if (!lottieRef.current) return;
-    if (inView) lottieRef.current.play();
-    else lottieRef.current.pause();
+    const inst = (lottieRef as any).current;
+    if (!inst) return;
+    if (inView) inst.play();
+    else inst.pause();
   }, [inView]);
 
   return (
@@ -78,6 +86,7 @@ function LottieInView({
       viewport={{ once: true, amount: 0.25 }}
     >
       <Lottie
+        // @ts-expect-error lottie-react ref is untyped in some versions
         lottieRef={lottieRef}
         animationData={data}
         loop={loop}
